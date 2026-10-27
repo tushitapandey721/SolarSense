@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard — SolarSense AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}" />
+</head>
+<body class="admin-body">
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="admin-logo">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="8" fill="#F59E0B"/>
+          <path d="M16 2v4M16 26v4M2 16h4M26 16h4M5.5 5.5l2.8 2.8M23.7 23.7l2.8 2.8M26.5 5.5l-2.8 2.8M8.3 23.7l-2.8 2.8" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <span>SolarSense</span>
+      </div>
+      <nav class="admin-nav">
+        <a href="/admin/" class="admin-nav-item active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Dashboard
+        </a>
+        <a href="/" target="_blank" class="admin-nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+          View Website
+        </a>
+        <a href="/assessment" target="_blank" class="admin-nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          Assessment
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="admin-main">
+      <div class="admin-header">
+        <div>
+          <h1>Leads Dashboard</h1>
+          <p class="admin-sub">All solar assessment submissions</p>
+        </div>
+        <button class="admin-refresh-btn" onclick="location.reload()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
+          Refresh
+        </button>
+      </div>
+
+      <!-- Stats cards -->
+      <div class="stat-cards">
+        <div class="stat-card stat-card--total">
+          <div class="stat-card-icon">📋</div>
+          <div>
+            <div class="stat-card-value">{{ stats.total }}</div>
+            <div class="stat-card-label">Total Leads</div>
+          </div>
+        </div>
+        <div class="stat-card stat-card--new">
+          <div class="stat-card-icon">🆕</div>
+          <div>
+            <div class="stat-card-value">{{ stats.new }}</div>
+            <div class="stat-card-label">New</div>
+          </div>
+        </div>
+        <div class="stat-card stat-card--qualified">
+          <div class="stat-card-icon">⭐</div>
+          <div>
+            <div class="stat-card-value">{{ stats.qualified }}</div>
+            <div class="stat-card-label">Qualified</div>
+          </div>
+        </div>
+        <div class="stat-card stat-card--contacted">
+          <div class="stat-card-icon">📞</div>
+          <div>
+            <div class="stat-card-value">{{ stats.contacted }}</div>
+            <div class="stat-card-label">Contacted</div>
+          </div>
+        </div>
+        <div class="stat-card stat-card--converted">
+          <div class="stat-card-icon">✅</div>
+          <div>
+            <div class="stat-card-value">{{ stats.converted }}</div>
+            <div class="stat-card-label">Converted</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Leads table -->
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <h2>All Leads</h2>
+          <input type="text" id="searchInput" placeholder="Search name, phone, city…" class="admin-search" />
+        </div>
+
+        {% if leads %}
+        <div class="table-wrap">
+          <table class="leads-table" id="leadsTable">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>City</th>
+                <th>Bill (PKR)</th>
+                <th>System</th>
+                <th>Savings/mo</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for lead in leads %}
+              <tr data-id="{{ lead.id }}" class="lead-row">
+                <td class="td-date">{{ lead.created_at[:10] if lead.created_at else '—' }}</td>
+                <td class="td-name">{{ lead.name or '—' }}</td>
+                <td><a href="tel:{{ lead.phone }}">{{ lead.phone or '—' }}</a></td>
+                <td>{{ lead.city or '—' }}</td>
+                <td>{% if lead.monthly_bill %}{{ '{:,.0f}'.format(lead.monthly_bill) }}{% else %}—{% endif %}</td>
+                <td>
+                  {% if lead.recommendation %}
+                    {{ lead.recommendation.system_size_kw }} kW
+                  {% else %}—{% endif %}
+                </td>
+                <td>
+                  {% if lead.recommendation and lead.recommendation.monthly_savings_pkr %}
+                    {{ '{:,.0f}'.format(lead.recommendation.monthly_savings_pkr) }}
+                  {% else %}—{% endif %}
+                </td>
+                <td>
+                  <span class="status-badge status-{{ lead.status }}">{{ lead.status.capitalize() }}</span>
+                </td>
+                <td>
+                  <a href="/admin/lead/{{ lead.id }}" class="admin-btn-view">View</a>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        {% else %}
+        <div class="empty-state">
+          <div class="empty-icon">📭</div>
+          <h3>No leads yet</h3>
+          <p>Leads will appear here once users complete the solar assessment.</p>
+          <a href="/assessment" target="_blank" class="btn-primary-sm">Open Assessment</a>
+        </div>
+        {% endif %}
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Live search filter
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+      searchInput.addEventListener('input', function() {
+        const q = this.value.toLowerCase();
+        document.querySelectorAll('.lead-row').forEach(row => {
+          const text = row.textContent.toLowerCase();
+          row.style.display = text.includes(q) ? '' : 'none';
+        });
+      });
+    }
+  </script>
+</body>
+</html>

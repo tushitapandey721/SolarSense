@@ -1,0 +1,294 @@
+{% extends "base.html" %}
+{% block title %}SolarSense AI — Smart Solar Recommendations{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-particles" aria-hidden="true"></div>
+  <div class="container hero-content">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      AI-Powered Solar Intelligence
+    </div>
+    <h1>
+      Stop Overpaying for Electricity.<br />
+      <span class="gradient-text">Go Solar, Intelligently.</span>
+    </h1>
+    <p class="hero-desc">
+      SolarSense AI analyses your energy usage, property details, and location to deliver
+      a personalised solar system recommendation in under 3 minutes — completely free.
+    </p>
+    <div class="hero-actions">
+      <a href="/assessment" class="btn btn-primary btn-lg pulse-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        Start Solar Assessment
+      </a>
+      <a href="tel:+918005004777" class="btn btn-outline btn-lg">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012.88 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Call Us Now
+      </a>
+      <a href="https://wa.me/918005004777" target="_blank" class="btn btn-whatsapp btn-lg">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.858L.057 23.428a.75.75 0 00.918.919l5.656-1.48A11.928 11.928 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.914 0-3.71-.504-5.265-1.386l-.376-.215-3.898 1.021 1.04-3.798-.232-.389A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <strong>2,400+</strong>
+        <span>Homes Assessed</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <strong>PKR 3.2B</strong>
+        <span>Savings Generated</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <strong>98%</strong>
+        <span>Satisfaction Rate</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual" aria-hidden="true">
+    <div class="solar-panel-anim">
+      <div class="panel-grid">
+        {% for i in range(12) %}
+        <div class="panel-cell" style="animation-delay: {{ loop.index0 * 0.15 }}s"></div>
+        {% endfor %}
+      </div>
+      <div class="energy-beam"></div>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section class="section" id="how-it-works">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Simple Process</span>
+      <h2>How SolarSense AI Works</h2>
+      <p>From first question to full solar plan in three simple steps</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">01</div>
+        <div class="step-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <h3>Answer 8 Quick Questions</h3>
+        <p>Our AI chatbot guides you through your electricity bill, property details, and roof specifications. No expertise needed.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">02</div>
+        <div class="step-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        </div>
+        <h3>AI Analyses Your Data</h3>
+        <p>Our engine calculates optimal system size, expected savings, payback period, and ROI based on your city's sun data.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">03</div>
+        <div class="step-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3>Get Your Solar Plan</h3>
+        <p>Receive a detailed recommendation: system size, panel count, cost estimate, savings forecast, and payback timeline.</p>
+      </div>
+    </div>
+    <div class="steps-cta">
+      <a href="/assessment" class="btn btn-primary btn-lg">Start Your Free Assessment →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Benefits -->
+<section class="section section-dark" id="benefits">
+  <div class="container">
+    <div class="section-header light">
+      <span class="section-tag">Why Solar</span>
+      <h2>Benefits of Going Solar</h2>
+      <p>Join thousands of Pakistani homeowners saving money and reducing load-shedding impact</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon benefit-icon--green">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <h3>Slash Your Bills</h3>
+        <p>Reduce electricity bills by 60–90%. Most customers see a full payback within 3–5 years.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon benefit-icon--yellow">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <h3>Beat Load-Shedding</h3>
+        <p>Battery backup options keep your home powered through outages — day or night.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon benefit-icon--blue">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Increase Property Value</h3>
+        <p>Solar installations can add 10–15% to your property's market value.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon benefit-icon--teal">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Net Metering</h3>
+        <p>Sell surplus power back to the grid and earn credits on your electricity bill.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon benefit-icon--orange">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+        </div>
+        <h3>25-Year Panel Warranty</h3>
+        <p>Modern solar panels are built to last with manufacturers guaranteeing performance for 25+ years.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon benefit-icon--green">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+        </div>
+        <h3>Clean Energy Future</h3>
+        <p>Reduce your carbon footprint by up to 2 tonnes of CO₂ per year — a real environmental impact.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section" id="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Happy Customers</span>
+      <h2>What Our Customers Say</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"SolarSense AI gave me a complete solar plan in minutes. My bill dropped from PKR 18,000 to PKR 2,200 a month. Incredible!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">AK</div>
+          <div>
+            <strong>Ahmed Khan</strong>
+            <span>Lahore</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"The chatbot was so easy to use. Got my personalised recommendation instantly. The savings estimate was spot-on."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">SR</div>
+          <div>
+            <strong>Sara Raza</strong>
+            <span>Karachi</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Finally a solar company that doesn't guess! The AI calculated exactly what I needed. No load-shedding anymore."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">UF</div>
+          <div>
+            <strong>Usman Farooqi</strong>
+            <span>Islamabad</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section section-contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <span class="section-tag">Get In Touch</span>
+        <h2>Ready to Switch to Solar?</h2>
+        <p>Talk to our solar experts today. We'll answer all your questions and help you go solar with confidence.</p>
+        <div class="contact-actions">
+          <a href="tel:+918005004777" class="contact-link">
+            <div class="contact-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012.88 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div>
+              <strong>Call Us</strong>
+              <span>Anit Pandey — +91 80050 04777</span>
+            </div>
+          </a>
+          <a href="https://wa.me/918005004777" target="_blank" class="contact-link contact-link--wa">
+            <div class="contact-icon contact-icon--wa">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.858L.057 23.428a.75.75 0 00.918.919l5.656-1.48A11.928 11.928 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.914 0-3.71-.504-5.265-1.386l-.376-.215-3.898 1.021 1.04-3.798-.232-.389A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            </div>
+            <div>
+              <strong>WhatsApp</strong>
+              <span>Chat with us now</span>
+            </div>
+          </a>
+        </div>
+        <div class="contact-meta">
+          <p>🕘 Available 9 AM – 6 PM, daily</p>
+          <p>📍 Serving Uttar Pradesh — near Lucknow &amp; Gorakhpur</p>
+        </div>
+      </div>
+      <div class="contact-form-box">
+        <h3>Quick Enquiry</h3>
+        <form id="contactForm" class="contact-form" novalidate>
+          <div class="form-group">
+            <label for="cf-name">Full Name</label>
+            <input type="text" id="cf-name" name="name" placeholder="Your full name" required />
+            <span class="field-error" id="err-name"></span>
+          </div>
+          <div class="form-group">
+            <label for="cf-phone">Phone Number</label>
+            <input type="tel" id="cf-phone" name="phone" placeholder="+91 80050 04777" required />
+            <span class="field-error" id="err-phone"></span>
+          </div>
+          <div class="form-group">
+            <label for="cf-city">City</label>
+            <input type="text" id="cf-city" name="city" placeholder="Your city" required />
+            <span class="field-error" id="err-city"></span>
+          </div>
+          <div class="form-group">
+            <label for="cf-message">Message (optional)</label>
+            <textarea id="cf-message" name="message" rows="3" placeholder="Tell us about your requirements…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary w-full" id="cfSubmitBtn">
+            Send Enquiry
+          </button>
+          <div id="form-success" class="form-success hidden">
+            ✅ Thanks! We've received your details.
+            <a href="tel:+918005004777" class="form-success-call">📞 Call Anit Pandey now — +91 80050 04777</a>
+            <span class="form-success-hours">Available 9 AM – 6 PM</span>
+          </div>
+          <div id="form-error" class="form-error hidden">
+            ❌ Something went wrong. Please try again.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Floating Buttons -->
+<div class="floating-actions">
+  <a href="tel:+918005004777" class="float-btn float-call" aria-label="Call us">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012.88 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    <span class="float-label">Call</span>
+  </a>
+  <a href="https://wa.me/918005004777" target="_blank" class="float-btn float-wa" aria-label="WhatsApp">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.858L.057 23.428a.75.75 0 00.918.919l5.656-1.48A11.928 11.928 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.914 0-3.71-.504-5.265-1.386l-.376-.215-3.898 1.021 1.04-3.798-.232-.389A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    <span class="float-label">WhatsApp</span>
+  </a>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}

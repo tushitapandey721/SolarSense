@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}SolarSense AI{% endblock %}</title>
+  <meta name="description" content="AI-powered solar energy recommendations for your home." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="16" cy="16" r="8" fill="#F59E0B"/>
+          <path d="M16 2v4M16 26v4M2 16h4M26 16h4M5.5 5.5l2.8 2.8M23.7 23.7l2.8 2.8M26.5 5.5l-2.8 2.8M8.3 23.7l-2.8 2.8" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <span>SolarSense <strong>AI</strong></span>
+      </a>
+      <div class="nav-links">
+        <a href="/#how-it-works">How It Works</a>
+        <a href="/#benefits">Benefits</a>
+        <a href="/#contact">Contact</a>
+        <a href="/assessment" class="btn-nav">Start Assessment</a>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="this.closest('.navbar').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  {% block content %}{% endblock %}
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="8" fill="#F59E0B"/>
+              <path d="M16 2v4M16 26v4M2 16h4M26 16h4M5.5 5.5l2.8 2.8M23.7 23.7l2.8 2.8M26.5 5.5l-2.8 2.8M8.3 23.7l-2.8 2.8" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+            <span>SolarSense <strong>AI</strong></span>
+          </div>
+          <p>Empowering Pakistan with AI-driven solar energy intelligence.</p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <ul>
+            <li><a href="/assessment">Solar Assessment</a></li>
+            <li><a href="/#how-it-works">How It Works</a></li>
+            <li><a href="/#benefits">Benefits</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li class="footer-advisor-name">Anit Pandey</li>
+            <li><a href="tel:+918005004777">+91 80050 04777</a></li>
+            <li><a href="https://wa.me/918005004777" target="_blank">WhatsApp Us</a></li>
+            <li><a href="mailto:hello@solarsense.ai">hello@solarsense.ai</a></li>
+            <li class="footer-meta">🕘 9 AM – 6 PM daily</li>
+            <li class="footer-meta">📍 Uttar Pradesh — near Lucknow &amp; Gorakhpur</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 SolarSense AI. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>
